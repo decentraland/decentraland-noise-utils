@@ -29,13 +29,13 @@ To use any of the helpers provided by the noise library
 1. Install it as an `npm` package. Run this command in your scene's project folder:
 
 ```
-npm install decentraland-noise-utils
+npm install @dcl/noise-utils
 ```
 
 2. Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
 
 ```ts
-import { Noise } from '../node_modules/decentraland-noise-utils/index'
+import { Noise } from '../node_modules/@dcl/noise-utils/index'
 ```
 
 3. In your TypeScript file, write `Noise.` and let the suggestions of your IDE show the available helpers.
