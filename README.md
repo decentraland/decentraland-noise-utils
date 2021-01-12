@@ -1,4 +1,4 @@
-# decentraland-noise-utils
+# Decentraland Noise Utils Library
 
 This library includes tools for generating semi-random noise based on the Perlin and Simplex algorithms. These are used to generate random sequences of values that have a similarity to the kind of randomness we see in nature. The result is not chaotic noise, but rather smooth curves that trend up and down randomly, and always keeping a fairly even balance.
 
