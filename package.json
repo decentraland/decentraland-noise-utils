@@ -29,5 +29,10 @@
     "decentraland-ecs": "^6.6.4",
     "typescript": "^3.7.4",
     "semantic-release": ">=17.2.3"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
