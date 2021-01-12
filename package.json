@@ -1,5 +1,5 @@
 {
-  "name": "decentraland-noise-utils",
+  "name": "@dcl/noise-utils",
   "version": "0.0.0-development",
   "description": "Tools for generating semi-random noise based on the Perlin and Simplex algorithms, to simulate an organic kind of randomness.",
   "main": "index.ts",
@@ -28,6 +28,6 @@
   "devDependencies": {
     "decentraland-ecs": "^6.6.4",
     "typescript": "^3.7.4",
-	"semantic-release": ">=17.2.3"
+    "semantic-release": ">=17.2.3"
   }
 }
