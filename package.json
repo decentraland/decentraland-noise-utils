@@ -30,6 +30,9 @@
     "typescript": "^3.7.4",
     "semantic-release": ">=17.2.3"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "release": {
     "branches": [
       "main"
