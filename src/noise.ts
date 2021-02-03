@@ -1,14 +1,19 @@
 export class Noise {
-  static grad3: Grad[]
-  static p: number[]
-  static perm: Array<number>
-  static gradP: Array<Grad>
-  static F2: number
-  static G2: number
-  static F3: number
-  static G3: number
+  private static grad3: Grad[]
+  private static p: number[]
+  private static perm: Array<number>
+  private static gradP: Array<Grad>
+  private static F2: number
+  private static G2: number
+  private static F3: number
+  private static G3: number
   static initialized: boolean = false
 
+  /**
+   * Initialize a Noise object. This step is not needed unless you want to provide a specific seed value. Otherwise, this function gets called under the hood by simplex and Perlin functions
+   *
+   * @param seed {number} Seed number to initiate the Noise object. Value between 0 and 1, or between 1 and 65536. All sequences generated from this Noise object are deterministic based on this seed number.
+   */
   static Init(seed?: number) {
     this.initialized = true
     this.grad3 = [
@@ -23,7 +28,7 @@ export class Noise {
       new Grad(0, 1, 1),
       new Grad(0, -1, 1),
       new Grad(0, 1, -1),
-      new Grad(0, -1, -1),
+      new Grad(0, -1, -1)
     ]
 
     this.p = [
@@ -282,7 +287,7 @@ export class Noise {
       215,
       61,
       156,
-      180,
+      180
     ]
     // To remove the need for index wrapping, double the permutation table length
     this.perm = new Array(512)
@@ -298,8 +303,11 @@ export class Noise {
     this.seed(seed ? seed : Math.random())
   }
 
-  // This isn't a very good seeding function, but it works ok. It supports 2^16
-  // different seed values. Write something better if you need more seeds.
+  /**
+   * Set a seed value for the Noise object
+   *
+   * @param seed {number} Seed number to set on the Noise object. Value between 0 and 1, or between 1 and 65536. All sequences generated from this Noise object are deterministic based on this seed number.
+   */
   static seed(seed: number) {
     if (!this.initialized) {
       this.Init()
@@ -328,13 +336,13 @@ export class Noise {
     }
   }
 
-  /*
-		  for(var i=0; i<256; i++) {
-			perm[i] = perm[i + 256] = p[i];
-			gradP[i] = gradP[i + 256] = grad3[perm[i] % 12];
-		  }*/
-
-  // 2D simplex noise
+  /**
+   * Get a value based on a 2D simplex algorithm. If a Noise object wasn't already initialized, it will use a random seed.
+   *
+   * @param xin {number} A position in the X axis of the simplex grid to fetch from.
+   * @param yin {number} A position in the Y axis of the simplex grid to fetch from.
+   * @return {number} The resulting value (between 0 and 1) on the noise grid for the requested coordinates, based on the seed used by the Noise object.
+   */
   static simplex2(xin: number, yin: number) {
     if (!this.initialized) {
       this.Init()
@@ -400,6 +408,14 @@ export class Noise {
   }
 
   // 3D simplex noise
+  /**
+   * Get a value based on a 3D simplex algorithm. If a Noise object wasn't already initialized, it will use a random seed.
+   *
+   * @param xin {number} A position in the X axis of the simplex grid to fetch from.
+   * @param yin {number} A position in the Y axis of the simplex grid to fetch from.
+   * @param zin {number} A position in the Z axis of the simplex grid to fetch from.
+   * @return {number} The resulting value (between 0 and 1) on the noise grid for the requested coordinates, based on the seed used by the Noise object.
+   */
   static simplex3(xin: number, yin: number, zin: number) {
     if (!this.initialized) {
       this.Init()
@@ -537,7 +553,13 @@ export class Noise {
     return (1 - t) * a + t * b
   }
 
-  // 2D Perlin Noise
+  /**
+   * Get a value based on a 2D Perlin noise algorithm. If a Noise object wasn't already initialized, it will use a random seed.
+   *
+   * @param x {number} A position in the X axis of the Perlin grid to fetch from.
+   * @param y {number} A position in the Y axis of the Perlin grid to fetch from.
+   * @return {number} The resulting value (between 0 and 1) on the noise grid for the requested coordinates, based on the seed used by the Noise object.
+   */
   static perlin2(x: number, y: number) {
     if (!this.initialized) {
       this.Init()
@@ -580,6 +602,14 @@ export class Noise {
   }
 
   // 3D Perlin Noise
+  /**
+   * Get a value based on a 3D Perlin noise algorithm. If a Noise object wasn't already initialized, it will use a random seed.
+   *
+   * @param x {number} A position in the X axis of the Perlin grid to fetch from.
+   * @param y {number} A position in the Y axis of the Perlin grid to fetch from.
+   * @param z {number} A position in the Y axis of the Perlin grid to fetch from.
+   * @return {number} The resulting value (between 0 and 1) on the noise grid for the requested coordinates, based on the seed used by the Noise object.
+   */
   static perlin3(x: number, y: number, z: number) {
     if (!this.initialized) {
       this.Init()
@@ -637,7 +667,7 @@ export class Noise {
   }
 }
 
-export class Grad {
+class Grad {
   public vector: Vector3
   constructor(x: number, y: number, z: number) {
     this.vector = new Vector3(x, y, z)
