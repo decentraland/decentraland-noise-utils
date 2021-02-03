@@ -2,6 +2,7 @@
 	"include": ["src"],
 	"compilerOptions": {
 	  "module": "ESNext",
+	  "inlineSourceMap": false,
 	  "sourceMap": true,
 	  "declaration": true
 	},
