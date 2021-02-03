@@ -174,3 +174,4 @@ By default, the Perlin and simplex noise formulas use a random seed number, so t
 For these formulas to always produce the same results, initiate the `Noise` object with a specific seed value. Use `Noise.Init(seed)`, where `seed` is a value between 0 and 1, or between 1 and 65536. After calling the `Init` object with a seed value, you can call the simplex or Perlin functions freely, and their results will be deterministic based on the seed you passed.
 
 This is especially useful to make sure the result looks the same for all players who are in the scene at the same time. Consistency may be important in some cases, for example if the floor level raises players up or down randomly, you want players to all see the elevation patterns match the positions of other players. If all players have initiated their `Noise` object with the same seed value, then passing the same parameters to the Perlin or simplex functions should return the same values on each.
+.
