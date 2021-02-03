@@ -2,7 +2,8 @@
   "name": "@dcl/noise-utils",
   "version": "0.0.0-development",
   "description": "Tools for generating semi-random noise based on the Perlin and Simplex algorithms, to simulate an organic kind of randomness.",
-  "main": "index.ts",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "build": "rollup -c --environment BUILD:production",
     "make": "cp -r src dist && cp package.json dist/package.json && cp LICENSE dist/LICENSE && cp README.md dist/README.md",
