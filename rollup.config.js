@@ -34,10 +34,10 @@ export default {
     {
       file: './dist/index.js',
       format: 'umd',
-      name: 'noise-utils',
+      name: '@dcl/noise-utils',
       sourcemap: true,
       amd: {
-        id: 'noise-utils'
+        id: '@dcl/noise-utils'
       }
     }
   ]
