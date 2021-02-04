@@ -37,7 +37,7 @@ npm install @dcl/noise-utils -B
 3. Import the library into the scene's script. Add this line at the start of your `game.ts` file, or any other TypeScript files that require it:
 
 ```ts
-import { Noise } from 'noise-utils'
+import { Noise } from '@dcl/noise-utils'
 ```
 
 4. In your TypeScript file, write `Noise.` and let the suggestions of your IDE show the available helpers.
@@ -99,7 +99,7 @@ The following example uses a 3d simplex formula to map the heights of several cu
 ![](images/noise-cubes-example.gif)
 
 ```ts
-import { Noise } from 'noise-utils'
+import { Noise } from '@dcl/noise-utils'
 
 // --- Set up a system ---
 
