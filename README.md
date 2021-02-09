@@ -109,10 +109,12 @@ class PerlinNoiseSystem implements ISystem {
   timer: number = 0
   update(dt: number) {
     this.timer += dt / 4
+
     // iterate over the entities of the group
     for (let entity of this.group) {
       // get the Transform component of the entity
       const transform = entity.getComponent(Transform)
+
       // set the height of the entity based on a simplex3 function, using its position on the grid and the time
       transform.position.y =
         Noise.simplex3(
@@ -155,8 +157,10 @@ function spawnCube(box: Shape, x: number, y: number, z: number) {
   return cube
 }
 
-/// --- Spawn a cube ---
+/// --- Reusable box shape ---
 let box = new BoxShape()
+
+/// --- Spawn the cubes as a grid ---
 for (var x = 0.5; x < 16; x++) {
   for (var y = 0.5; y < 16; y++) {
     let height = Noise.simplex3(x / 16, 0, y / 16) + 1
