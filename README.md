@@ -179,3 +179,33 @@ For these formulas to always produce the same results, initiate the `Noise` obje
 
 This is especially useful to make sure the result looks the same for all players who are in the scene at the same time. Consistency may be important in some cases, for example if the floor level raises players up or down randomly, you want players to all see the elevation patterns match the positions of other players. If all players have initiated their `Noise` object with the same seed value, then passing the same parameters to the Perlin or simplex functions should return the same values on each.
 .
+
+
+----
+
+
+## Contribute
+
+In order to test changes made to this repository in active scenes, do the following:
+
+1. Run `npm run link` on this repository
+2. On the scene directory, after you installed the dependency, run `npm link @dcl/ui-scene-utils`
+
+
+## CI/CD
+
+This repository uses `semantic-release` to atumatically release new versions of the package to NPM.
+
+Use the following convention for commit names:
+
+`feat: something`: Minor release, every time you add a feature or enhancement that doesn’t break the api.
+
+`fix: something`: Bug fixing / patch
+
+`chore: something`: Anything that doesn't require a release to npm, like changing the readme. Updating a dependency is **not** a chore if it fixes a bug or a vulnerability, that's a `fix`.
+
+If you break the API of the library, you need to do a major release, and that's done a different way. You need to add a second comment that starts with `BREAKING CHANGE`, like:
+
+```
+commit -m "feat: changed the signature of a method" -m "BREAKING CHANGE: this commit breaks the API, changing foo(arg1) to foo(arg1, arg2)"
+```
