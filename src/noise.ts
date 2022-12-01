@@ -668,15 +668,15 @@ export class Noise {
 }
 
 class Grad {
-  public vector: Vector3
-  constructor(x: number, y: number, z: number) {
-    this.vector = new Vector3(x, y, z)
+	public vector: {x:number, y:number, z:number}
+	constructor(x: number, y: number, z: number) {
+	  this.vector = {x:x, y:y, z:z}
+	}
+  
+	dot2(x: number, y: number) {
+	  return this.vector.x * x + this.vector.y * y
+	}
+	dot3(x: number, y: number, z: number) {
+	  return this.vector.x * x + this.vector.y * y + this.vector.z * z
+	}
   }
-
-  dot2(x: number, y: number) {
-    return this.vector.x * x + this.vector.y * y
-  }
-  dot3(x: number, y: number, z: number) {
-    return this.vector.x * x + this.vector.y * y + this.vector.z * z
-  }
-}
